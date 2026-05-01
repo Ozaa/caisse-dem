@@ -17,9 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
   setInterval(updateClock, 1000);
   document.getElementById('session-id').textContent = cartId;
 });
-
-function loadDefaultProducts() {
-  console.log("oui");
+ async function  loadDefaultProducts() {
   try {
     const response = await fetch('./datas/products.json');
     if (!response.ok) throw new Error('Erreur de chargement');
@@ -372,7 +370,7 @@ function exportHistory() {
 }
 
 function exportProducts() {
-  downloadJSON(products, 'products.json');
+  downloadJSON(products, './datas/products.json');
   showToast('Catalogue exporté ✓');
 }
 
