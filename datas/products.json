@@ -1,0 +1,20 @@
+[
+  { "id": "P001", "nom": "Café Espresso", "prix": 1.80, "categorie": "Boissons", "emoji": "☕" },
+  { "id": "P002", "nom": "Café Crème", "prix": 2.20, "categorie": "Boissons", "emoji": "🍵" },
+  { "id": "P003", "nom": "Thé Vert", "prix": 2.00, "categorie": "Boissons", "emoji": "🍃" },
+  { "id": "P004", "nom": "Jus d'Orange", "prix": 3.50, "categorie": "Boissons", "emoji": "🍊" },
+  { "id": "P005", "nom": "Eau Minérale", "prix": 1.50, "categorie": "Boissons", "emoji": "💧" },
+  { "id": "P006", "nom": "Coca-Cola", "prix": 2.80, "categorie": "Boissons", "emoji": "🥤" },
+  { "id": "P007", "nom": "Croissant", "prix": 1.20, "categorie": "Viennoiseries", "emoji": "🥐" },
+  { "id": "P008", "nom": "Pain au Chocolat", "prix": 1.30, "categorie": "Viennoiseries", "emoji": "🍫" },
+  { "id": "P009", "nom": "Muffin Myrtille", "prix": 2.50, "categorie": "Viennoiseries", "emoji": "🫐" },
+  { "id": "P010", "nom": "Tartine Beurre", "prix": 1.80, "categorie": "Viennoiseries", "emoji": "🍞" },
+  { "id": "P011", "nom": "Sandwich Jambon", "prix": 4.50, "categorie": "Salé", "emoji": "🥪" },
+  { "id": "P012", "nom": "Quiche Lorraine", "prix": 3.80, "categorie": "Salé", "emoji": "🥧" },
+  { "id": "P013", "nom": "Salade César", "prix": 6.50, "categorie": "Salé", "emoji": "🥗" },
+  { "id": "P014", "nom": "Croque-Monsieur", "prix": 4.20, "categorie": "Salé", "emoji": "🧀" },
+  { "id": "P015", "nom": "Tarte aux Pommes", "prix": 3.50, "categorie": "Desserts", "emoji": "🍎" },
+  { "id": "P016", "nom": "Fondant Chocolat", "prix": 4.00, "categorie": "Desserts", "emoji": "🍰" },
+  { "id": "P017", "nom": "Macarons x3", "prix": 5.50, "categorie": "Desserts", "emoji": "🎂" },
+  { "id": "P018", "nom": "Glace Vanille", "prix": 2.80, "categorie": "Desserts", "emoji": "🍦" }
+]

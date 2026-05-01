@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caisse Démons et Merveilles</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="caisse.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div id="app">
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar">
+    <!-- Total -->
+    <div id="total-panel">
+      <div class="total-label">Total à payer</div>
+      <div id="total-display">0,00 €</div>
+      <div class="total-sub"><span id="item-count">0 article</span></div>
+    </div>
+
+    <!-- Panier -->
+    <div id="cart-panel">
+      <div class="cart-empty" id="cart-empty">
+        <div class="cart-empty-icon">🛒</div>
+        <span>Panier vide</span>
+      </div>
+      <div id="cart-items"></div>
+    </div>
+
+    <!-- Actions -->
+    <div id="actions-panel">
+      <button class="btn btn-pay" id="btn-pay" disabled onclick="openReceipt()">
+        ✓ Encaisser
+      </button>
+      <button class="btn btn-clear" id="btn-clear" disabled onclick="clearCart()">
+        ✕ Vider le panier
+      </button>
+      <div class="sep"></div>
+      <div class="btn-row">
+        <button class="btn btn-history" onclick="openHistory()">Historique</button>
+        <button class="btn btn-import" onclick="triggerImport()">Charger JSON</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main id="main">
+    <div id="header">
+      <div>
+        <div class="logo">Caisse</span></div>
+      </div>
+      <div style="margin-left:auto; font-size:11px; color:var(--text-dim);" id="clock"></div>
+    </div>
+
+    <div id="toolbar">
+      <input type="text" id="search" placeholder="Rechercher un article…" oninput="filterProducts()">
+      <div id="category-filters" style="display:flex; gap:8px; flex-wrap:wrap;"></div>
+    </div>
+
+    <div id="grid-container">
+      <div id="products-grid"></div>
+    </div>
+  </main>
+</div>
+
+<!-- MODAL ENCAISSEMENT -->
+<div class="modal-overlay" id="modal-receipt">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">🧾 Récapitulatif</div>
+      <button class="modal-close" onclick="closeModal('modal-receipt')">✕</button>
+    </div>
+    <div id="receipt-items"></div>
+    <div class="receipt-total-row">
+      <span>Total</span>
+      <span id="receipt-total">0,00 €</span>
+    </div>
+    <div class="receipt-meta" id="receipt-meta"></div>
+    <button class="btn btn-confirm-pay" onclick="confirmPayment()">✓ Valider le paiement</button>
+  </div>
+</div>
+
+<!-- MODAL HISTORIQUE -->
+<div class="modal-overlay" id="modal-history">
+  <div class="modal" style="width:680px; max-width:95vw;">
+    <div class="modal-header">
+      <div class="modal-title">📊 Historique des ventes</div>
+      <button class="modal-close" onclick="closeModal('modal-history')">✕</button>
+    </div>
+    <div id="history-table-wrap">
+      <table id="history-table">
+        <thead>
+          <tr>
+            <th>ID Panier</th>
+            <th>ID Article</th>
+            <th>Nom</th>
+            <th>Qté</th>
+            <th>Prix unit.</th>
+            <th>Sous-total</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="history-tbody"></tbody>
+      </table>
+    </div>
+    <div class="export-row">
+      <button class="btn btn-export" onclick="exportHistory()">⬇ Exporter historique JSON</button>
+      <button class="btn btn-export" onclick="importHistory()">⬆ Importer historique JSON</button>
+      <button class="btn btn-export" onclick="exportProducts()">⬇ Exporter catalogue JSON</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAYMENT SUCCESS -->
+<div id="pay-success">
+  <div class="pay-success-icon">✅</div>
+  <div class="pay-success-text">Paiement enregistré !</div>
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- HIDDEN FILE INPUT -->
+<input type="file" id="file-input" accept=".json" style="display:none" onchange="handleFileImport(event)">
+<input type="file" id="file-history-input" accept=".json" style="display:none" onchange="handleHistoryImport(event)">
+<script src="caisse.js"></script>
+
+</body>
+</html>
